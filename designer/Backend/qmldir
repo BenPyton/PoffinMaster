@@ -1,0 +1,4 @@
+module Backend
+singleton Backend 1.0 Backend.qml
+Berry 1.0 Berry.qml
+Poffin 1.0 Poffin.qml

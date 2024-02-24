@@ -1,0 +1,459 @@
+{
+    "berries": [
+        {
+            "name": "Cheri",
+            "iconPath": "images/cheri.png",
+            "stats": [10, 0, 0, 0, 0],
+            "firmness": "soft",
+            "smoothness": 25
+        },
+        {
+            "name": "Chesto",
+            "iconPath": "images/chesto.png",
+            "stats": [0, 10, 0, 0, 0],
+            "firmness": "super hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Pecha",
+            "iconPath": "images/pecha.png",
+            "stats": [0, 0, 10, 0, 0],
+            "firmness": "very soft",
+            "smoothness": 25
+        },
+        {
+            "name": "Rawst",
+            "iconPath": "images/rawst.png",
+            "stats": [0, 0, 0, 10, 0],
+            "firmness": "hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Aspear",
+            "iconPath": "images/aspear.png",
+            "stats": [0, 0, 0, 0, 10],
+            "firmness": "super hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Leppa",
+            "iconPath": "images/leppa.png",
+            "stats": [10, 0, 10, 10, 10],
+            "firmness": "very hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Oran",
+            "iconPath": "images/oran.png",
+            "stats": [10, 10, 0, 10, 10],
+            "firmness": "super hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Persim",
+            "iconPath": "images/persim.png",
+            "stats": [10, 10, 10, 0, 10],
+            "firmness": "hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Lum",
+            "iconPath": "images/lum.png",
+            "stats": [10, 10, 10, 10, 0],
+            "firmness": "supper hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Sitrus",
+            "iconPath": "images/sitrus.png",
+            "stats": [0, 10, 10, 10, 10],
+            "firmness": "very hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Figy",
+            "iconPath": "images/figy.png",
+            "stats": [15, 0, 0, 0, 0],
+            "firmness": "soft",
+            "smoothness": 25
+        },
+        {
+            "name": "Wiki",
+            "iconPath": "images/wiki.png",
+            "stats": [0, 15, 0, 0, 0],
+            "firmness": "hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Mago",
+            "iconPath": "images/mago.png",
+            "stats": [0, 0, 15, 0, 0],
+            "firmness": "hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Aguav",
+            "iconPath": "images/aguav.png",
+            "stats": [0, 0, 0, 15, 0],
+            "firmness": "super hard",
+            "smoothness": 25
+        },
+        {
+            "name": "Iapapa",
+            "iconPath": "images/iapapa.png",
+            "stats": [0, 0, 0, 0, 15],
+            "firmness": "soft",
+            "smoothness": 25
+        },
+        {
+            "name": "Razz",
+            "iconPath": "images/razz.png",
+            "stats": [10, 10, 0, 0, 0],
+            "firmness": "very hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Bluk",
+            "iconPath": "images/bluk.png",
+            "stats": [0, 10, 10, 0, 0],
+            "firmness": "soft",
+            "smoothness": 20
+        },
+        {
+            "name": "Nanab",
+            "iconPath": "images/nanab.png",
+            "stats": [0, 0, 10, 10, 0],
+            "firmness": "very hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Wepear",
+            "iconPath": "images/wepear.png",
+            "stats": [0, 0, 0, 10, 10],
+            "firmness": "super hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Pinap",
+            "iconPath": "images/pinap.png",
+            "stats": [10, 0, 0, 0, 10],
+            "firmness": "hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Pomeg",
+            "iconPath": "images/pomeg.png",
+            "stats": [10, 0, 10, 10, 0],
+            "firmness": "very hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Kelpsy",
+            "iconPath": "images/kelpsy.png",
+            "stats": [0, 10, 0, 10, 10],
+            "firmness": "hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Qualot",
+            "iconPath": "images/qualot.png",
+            "stats": [10, 0, 10, 0, 10],
+            "firmness": "hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Hondew",
+            "iconPath": "images/hondew.png",
+            "stats": [10, 10, 0, 10, 0],
+            "firmness": "hard",
+            "smoothness": 20
+        },
+        {
+            "name": "Grepa",
+            "iconPath": "images/grepa.png",
+            "stats": [0, 10, 10, 0, 10],
+            "firmness": "soft",
+            "smoothness": 20
+        },
+        {
+            "name": "Tamato",
+            "iconPath": "images/tamato.png",
+            "stats": [20, 10, 0, 0, 0],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Cornn",
+            "iconPath": "images/cornn.png",
+            "stats": [0, 20, 10, 0, 0],
+            "firmness": "hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Magost",
+            "iconPath": "images/magost.png",
+            "stats": [0, 0, 20, 10, 0],
+            "firmness": "hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Rabuta",
+            "iconPath": "images/rabuta.png",
+            "stats": [0, 0, 0, 20, 10],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Nomel",
+            "iconPath": "images/nomel.png",
+            "stats": [10, 0, 0, 0, 20],
+            "firmness": "super hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Spelon",
+            "iconPath": "images/spelon.png",
+            "stats": [30, 10, 0, 0, 0],
+            "firmness": "soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Pamtre",
+            "iconPath": "images/pamtre.png",
+            "stats": [0, 30, 10, 0, 0],
+            "firmness": "very soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Watmel",
+            "iconPath": "images/watmel.png",
+            "stats": [0, 0, 30, 10, 0],
+            "firmness": "soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Durin",
+            "iconPath": "images/durin.png",
+            "stats": [0, 0, 0, 30, 10],
+            "firmness": "hard",
+            "smoothness": 35
+        },
+        {
+            "name": "Belue",
+            "iconPath": "images/belue.png",
+            "stats": [10, 0, 0, 0, 30],
+            "firmness": "very soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Occa",
+            "iconPath": "images/occa.png",
+            "stats": [15, 0, 10, 0, 0],
+            "firmness": "super hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Passho",
+            "iconPath": "images/passho.png",
+            "stats": [0, 15, 0, 10, 0],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Wacan",
+            "iconPath": "images/wacan.png",
+            "stats": [0, 0, 15, 0, 10],
+            "firmness": "very soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Rindo",
+            "iconPath": "images/rindo.png",
+            "stats": [10, 0, 0, 15, 0],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Yache",
+            "iconPath": "images/yache.png",
+            "stats": [0, 10, 0, 0, 15],
+            "firmness": "very hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Chople",
+            "iconPath": "images/chople.png",
+            "stats": [15, 0, 0, 10, 0],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Kebia",
+            "iconPath": "images/kebia.png",
+            "stats": [0, 15, 0, 0, 10],
+            "firmness": "hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Shuca",
+            "iconPath": "images/shuca.png",
+            "stats": [10, 0, 15, 0, 0],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Coba",
+            "iconPath": "images/coba.png",
+            "stats": [0, 10, 0, 15, 0],
+            "firmness": "very hard",
+            "smoothness": 30
+        },
+        {
+            "name": "Payapa",
+            "iconPath": "images/payapa.png",
+            "stats": [0, 0, 10, 0, 15],
+            "firmness": "soft",
+            "smoothness": 30
+        },
+        {
+            "name": "Tanga",
+            "iconPath": "images/tanga.png",
+            "stats": [20, 0, 0, 0, 10],
+            "firmness": "very soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Charti",
+            "iconPath": "images/charti.png",
+            "stats": [10, 20, 0, 0, 0],
+            "firmness": "very soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Kasib",
+            "iconPath": "images/kasib.png",
+            "stats": [0, 10, 20, 0, 0],
+            "firmness": "hard",
+            "smoothness": 35
+        },
+        {
+            "name": "Haban",
+            "iconPath": "images/haban.png",
+            "stats": [0, 0, 10, 20, 0],
+            "firmness": "soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Colbur",
+            "iconPath": "images/colbur.png",
+            "stats": [0, 0, 0, 10, 20],
+            "firmness": "super hard",
+            "smoothness": 35
+        },
+        {
+            "name": "Babiri",
+            "iconPath": "images/payapa.png",
+            "stats": [25, 10, 0, 0, 0],
+            "firmness": "super hard",
+            "smoothness": 35
+        },
+        {
+            "name": "Chilan",
+            "iconPath": "images/chilan.png",
+            "stats": [0, 25, 10, 0, 0],
+            "firmness": "very soft",
+            "smoothness": 35
+        },
+        {
+            "name": "Liechi",
+            "iconPath": "images/liechi.png",
+            "stats": [30, 10, 30, 0, 0],
+            "firmness": "very hard",
+            "smoothness": 40
+        },
+        {
+            "name": "Ganlon",
+            "iconPath": "images/ganlon.png",
+            "stats": [0, 30, 10, 30, 0],
+            "firmness": "very hard",
+            "smoothness": 40
+        },
+        {
+            "name": "Salac",
+            "iconPath": "images/salac.png",
+            "stats": [0, 0, 30, 10, 30],
+            "firmness": "very hard",
+            "smoothness": 40
+        },
+        {
+            "name": "Petaya",
+            "iconPath": "images/petaya.png",
+            "stats": [30, 0, 0, 30, 10],
+            "firmness": "very hard",
+            "smoothness": 40
+        },
+        {
+            "name": "Apicot",
+            "iconPath": "images/apicot.png",
+            "stats": [10, 30, 0, 0, 30],
+            "firmness": "very hard",
+            "smoothness": 40
+        },
+        {
+            "name": "Lansat",
+            "iconPath": "images/lansat.png",
+            "stats": [30, 10, 30, 10, 30],
+            "firmness": "soft",
+            "smoothness": 50
+        },
+        {
+            "name": "Starf",
+            "iconPath": "images/starf.png",
+            "stats": [30, 10, 30, 10, 30],
+            "firmness": "super hard",
+            "smoothness": 50
+        },
+        {
+            "name": "Enigma",
+            "iconPath": "images/enigma.png",
+            "stats": [40, 10, 0, 0, 0],
+            "firmness": "hard",
+            "smoothness": 60
+        },
+        {
+            "name": "Micle",
+            "iconPath": "images/micle.png",
+            "stats": [0, 40, 10, 0, 0],
+            "firmness": "soft",
+            "smoothness": 60
+        },
+        {
+            "name": "Custap",
+            "iconPath": "images/custap.png",
+            "stats": [0, 0, 40, 10, 0],
+            "firmness": "super hard",
+            "smoothness": 60
+        },
+        {
+            "name": "Jaboca",
+            "iconPath": "images/jaboca.png",
+            "stats": [0, 0, 0, 40, 10],
+            "firmness": "soft",
+            "smoothness": 60
+        },
+        {
+            "name": "Rowap",
+            "iconPath": "images/rowap.png",
+            "stats": [10, 0, 0, 0, 40],
+            "firmness": "very soft",
+            "smoothness": 60
+        },
+        {
+            "name": "Roseli",
+            "iconPath": "images/roseli.png",
+            "stats": [0, 0, 25, 10, 0],
+            "firmness": "hard",
+            "smoothness": 35
+        }
+    ]
+}
