@@ -8,10 +8,8 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-        Screen01.ui.qml
-        BerryButtonUI.ui.qml
+        Screen01.qml
         BerryButton.qml
-        BasketDelegateUI.ui.qml
         BasketDelegate.qml
         PoffinStatDelegateUI.ui.qml
         PoffinStatDelegate.qml

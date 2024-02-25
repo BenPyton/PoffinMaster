@@ -2,25 +2,26 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Backend
 
-BasketDelegateUI {
-    id: controlUI
-    required property int index
-    swipe.onCompleted: Backend.basket.remove(index)
+AbstractButton {
+    id: control
+    property string iconPath: "images/cheri.png"
+    required property int index // TODO: move logic in parent?
 
-    states: [
-        State {
-            name: "PRESSED"
-            when: controlUI.pressed
-            PropertyChanges { target: controlUI; scale: 1.2 }
-        }
-    ]
+    implicitWidth: image.implicitWidth + leftPadding + rightPadding
+    implicitHeight: image.implicitHeight + topPadding + bottomPadding
 
-    transitions: Transition {
-        NumberAnimation {
-            target: controlUI
-            property: "scale"
-            duration: 100
-            easing.type: Easing.OutQuad
-        }
+    Image {
+        id: image
+        source: iconPath
+        anchors.fill: parent
+        anchors.leftMargin: control.leftPadding
+        anchors.rightMargin: control.rightPadding
+        anchors.topMargin: control.topPadding
+        anchors.bottomMargin: control.bottomPadding
+        fillMode: Image.PreserveAspectFit
+        mipmap: true
     }
+
+    // TODO: move in the parent?
+    onClicked: Backend.basket.remove(index)
 }
