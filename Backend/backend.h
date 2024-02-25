@@ -23,8 +23,8 @@ public:
     explicit Backend(QObject *parent = nullptr);
     virtual ~Backend() override;
 
-    QString name() const { return "Cpp Backend"; }
-    QString version() const { return "v0.1.0"; }
+    QString name() const;
+    QString version() const;
     BerryListModel* berries() { return &m_berries; }
     BerryListModel* basket() { return &m_basket; }
 

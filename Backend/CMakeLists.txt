@@ -2,6 +2,7 @@ qt6_add_library(backend STATIC)
 qt_add_qml_module(backend
     URI Backend
     VERSION 1.0
+    RESOURCE_PREFIX "/"
     SOURCES
         backend.cpp backend.h
         berry.cpp berry.h

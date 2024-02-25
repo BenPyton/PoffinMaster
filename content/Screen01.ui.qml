@@ -36,7 +36,19 @@ Pane {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        ToolButton {
+        Label {
+            id: test
+            anchors.top: parent.top
+            anchors.right: parent.right
+            font.pointSize: 12
+            font.bold: true
+            text: page.width + " x " + page.height
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignVCenter
+        }
+
+
+        /*ToolButton {
             id: settings
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
@@ -46,8 +58,7 @@ Pane {
             icon.color: "white"
             icon.width: title.height
             icon.height: title.height
-        }
-
+        }*/
         Label {
             id: versionName
             text: Backend.version

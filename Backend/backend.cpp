@@ -6,6 +6,7 @@
 #include <QQmlFile>
 #include <QDirIterator>
 #include <QtMath>
+#include <QCoreApplication>
 
 Backend::Backend(QObject *parent)
     : QObject{parent}
@@ -90,4 +91,14 @@ bool Backend::fromJson(const QJsonObject& json)
 void Backend::onBasketChanged()
 {
     m_poffin->cook(m_basket.list());
+}
+
+QString Backend::name() const
+{
+    return "Cpp Backend";
+}
+
+QString Backend::version() const
+{
+    return QCoreApplication::applicationVersion();
 }
