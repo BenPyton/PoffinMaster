@@ -5,9 +5,9 @@ QtObject {
     enum Type {
         Null,
         Foul,
+        Overripe,
         Normal,
         Rich,
-        Overripe,
         Mild,
         SuperMild
     }
@@ -105,7 +105,9 @@ QtObject {
 
         // Update poffin type
         type = Poffin.Type.Normal;
-        if (nbFlavor == 0)
+        if (basket.count === 0)
+            type = Poffin.Type.Null;
+        else if (nbFlavor == 0)
             type = Poffin.Type.Overripe;
         else if (level >= 95)
             type = Poffin.Type.SuperMild;

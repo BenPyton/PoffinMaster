@@ -29,6 +29,7 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
+        visible: (Backend.poffin.type !== Poffin.Type.Null)
 
         Label {
             id: poffinName
@@ -81,6 +82,20 @@ Page {
                 barColor: color
             }
         }
+    }
+
+    Label {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: basket.top
+        anchors.bottomMargin: page.columnSpacing * Screen.pixelDensity
+        text: "Select a berry"
+        opacity: 0.3
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.pointSize: 24
+        visible: (Backend.poffin.type === Poffin.Type.Null)
     }
 
     ListView {
