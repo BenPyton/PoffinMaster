@@ -32,7 +32,7 @@ void Poffin::cook(const QList<Berry*>& basket)
     }
 
     m_smoothness = 0;
-    if (basket.count() > 0)
+    if (basketCount > 0)
         m_smoothness = qFloor(static_cast<float>(smoothSum) / static_cast<float>(basketCount)) - basketCount;
 
     /* Sum all flavors from the berries
@@ -84,7 +84,7 @@ void Poffin::cook(const QList<Berry*>& basket)
             m_subFlavor = m_mainFlavor;
             m_mainFlavor = i;
         }
-        else if (finalFlavorValue > m_stats.statValue(m_subFlavor))
+        else if (m_subFlavor == m_mainFlavor || finalFlavorValue > m_stats.statValue(m_subFlavor))
             m_subFlavor = i;
     }
     qDebug() << "Nb Flavor:" << nbFlavor;
@@ -118,8 +118,10 @@ void Poffin::cook(const QList<Berry*>& basket)
         existingBerries.append(berry);
     }
 
-    m_type = Type::Null;
-    if (multiBerries)
+    m_type = Type::Normal;
+    if (basketCount <= 0)
+        m_type = Type::Null;
+    else if (multiBerries)
         m_type = Type::Foul;
     else if (nbFlavor == 0)
         m_type = Type::Overripe;
@@ -129,8 +131,6 @@ void Poffin::cook(const QList<Berry*>& basket)
         m_type = Type::Mild;
     else if (nbFlavor == 3)
         m_type = Type::Rich;
-    else
-        m_type = Type::Normal;
 
     // Update the poffin name
     switch (m_type)

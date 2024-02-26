@@ -24,10 +24,10 @@ public:
     enum Type {
         Null, // empty basket
         Foul, // at least 2 of the same berries, or all flavors 0 (or failed cook)
+        Overripe, // all flavors at 0
         Normal, // named after its 2 strongest flavors (e.g. 'Spicy-Bitter Poffin')
-        Rich, // 3 flavors
-        Overripe, // 4 flavors
-        Mild, // all 5 flavors and level 50+
+        Rich, // 3+ flavors && level <50
+        Mild, // level 50+
         SuperMild, // level 95+
     };
     Q_ENUM(Type)

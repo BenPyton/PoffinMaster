@@ -29,7 +29,7 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
-        visible: (Backend.poffin.type !== Poffin.Type.Null)
+        visible: (Backend.poffin.type !== Poffin.Null)
 
         Label {
             id: poffinName
@@ -95,7 +95,7 @@ Page {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pointSize: 24
-        visible: (Backend.poffin.type === Poffin.Type.Null)
+        visible: (Backend.poffin.type === Poffin.Null)
     }
 
     ListView {
