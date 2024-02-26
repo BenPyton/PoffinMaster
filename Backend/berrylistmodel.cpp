@@ -1,7 +1,19 @@
 #include "berrylistmodel.h"
 #include "berry.h"
+#include <algorithm>
 
 BerryListModel::BerryListModel() {}
+
+Berry* BerryListModel::getByName(const QString& name) const
+{
+    const auto it = std::find_if(m_data.cbegin(), m_data.cend(), [&name] (Berry* element) {
+        return (element != nullptr) && (element->name().toLower() == name);
+    });
+
+    if (it == m_data.cend())
+        return nullptr;
+    return *it;
+}
 
 QVariant BerryListModel::data(const QModelIndex &index, int role) const
 {

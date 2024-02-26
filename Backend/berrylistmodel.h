@@ -29,6 +29,8 @@ public:
         return nullptr;
     }
 
+    Berry* getByName(const QString& name) const;
+
     Q_INVOKABLE void append(Berry* data)
     {
         int index = static_cast<int>(m_data.count());

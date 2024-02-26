@@ -12,7 +12,7 @@ Backend::Backend(QObject *parent)
     : QObject{parent}
     , m_poffin{new Poffin {this}}
 {
-    load(":/qt/qml/content/data/backend.json");
+    load(":/Backend/data/backend.json");
 
     // TODO: avoid the intermediate funcion onBasketChanged?
     QObject::connect(&m_basket, &BerryListModel::countChanged, this, &Backend::onBasketChanged);
@@ -35,7 +35,7 @@ bool Backend::load(QString path)
 
     if (!file.open(QIODevice::ReadOnly))
     {
-        qCritical() << "Can't open file" << file.fileName();
+        qCritical() << "Can't open file" << path;
         return false;
     }
 

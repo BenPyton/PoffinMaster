@@ -15,7 +15,6 @@ qt6_add_qml_module(content
         PoffinStatDelegate.qml
     RESOURCES
         fonts/fonts.txt
-        data/backend.json
         icons/settings.png
         images/aguav.png
         images/apicot.png

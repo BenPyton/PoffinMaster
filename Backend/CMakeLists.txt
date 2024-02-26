@@ -10,8 +10,12 @@ qt_add_qml_module(backend
         poffin.h poffin.cpp
         poffinstatsmodel.h poffinstatsmodel.cpp
         serializable.h
+    RESOURCES
+        data/backend.json
 )
 
 target_link_libraries(backend PRIVATE
     Qt6::Gui
 )
+
+add_subdirectory(Test)
