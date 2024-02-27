@@ -15,6 +15,7 @@ class Backend : public QObject, public Serializable
     QML_SINGLETON
     Q_PROPERTY(QString name READ name CONSTANT)
     Q_PROPERTY(QString version READ version CONSTANT)
+    Q_PROPERTY(bool debug READ isDebug CONSTANT)
     Q_PROPERTY(BerryListModel* berries READ berries NOTIFY berriesChanged)
     Q_PROPERTY(BerryListModel* basket READ basket NOTIFY basketChanged)
     Q_PROPERTY(Poffin* poffin MEMBER m_poffin NOTIFY poffinChanged)
@@ -32,6 +33,14 @@ public:
 
     virtual QJsonObject toJson() const override;
     bool fromJson(const QJsonObject& json); // not static because singleton
+
+    bool isDebug() const {
+#ifdef QT_DEBUG
+        return true;
+#else
+        return false;
+#endif
+    }
 
 signals:
     void berriesChanged();

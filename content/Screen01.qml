@@ -203,8 +203,6 @@ Page {
         id: berryList
         flickableDirection: Flickable.HorizontalFlick
         orientation: ListView.Horizontal
-        //Layout.fillWidth: true
-        //Layout.preferredHeight: 10 * Screen.pixelDensity
         height: 10 * Screen.pixelDensity
         anchors.left: parent.left
         anchors.right: parent.right
@@ -219,5 +217,4 @@ Page {
             width: height
         }
     }
-    //}
 }

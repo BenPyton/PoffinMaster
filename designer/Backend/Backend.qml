@@ -6,6 +6,7 @@ QtObject {
     id: backend
     property string name: "Qml Mockup"
     property string version: "v0.1.0"
+    property bool debug: true
 
     property QtObject poffin: Poffin {}
 

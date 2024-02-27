@@ -28,25 +28,13 @@ Window {
         Label {
             id: title
 
-            font.pointSize: 24
+            font.pixelSize: 5 * Screen.pixelDensity
             font.bold: true
             text: window.title
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
-
-        Label {
-            id: test
-            anchors.top: parent.top
-            anchors.right: parent.right
-            font.pointSize: 12
-            font.bold: true
-            text: window.width + " x " + window.height
-            horizontalAlignment: Text.AlignRight
-            verticalAlignment: Text.AlignVCenter
-        }
-
 
         /*ToolButton {
             id: settings
@@ -71,6 +59,7 @@ Window {
 
         Label {
             id: backendName
+            visible: Backend.debug
             text: Backend.name
             anchors.left: parent.left
             anchors.top: versionName.bottom
@@ -80,8 +69,6 @@ Window {
             font.family: Constants.font.family
         }
     }
-
-
 
     Screen01 {
         id: mainScreen
@@ -99,6 +86,21 @@ Window {
                 console.log("Yay!")
             }
         }
+    }
+
+    Label {
+        id: resolutionText
+        visible: Backend.debug
+        opacity: 0.5
+        anchors.top: mainScreen.top
+        anchors.right: mainScreen.right
+        anchors.topMargin: 1 * Screen.pixelDensity
+        anchors.rightMargin: 1 * Screen.pixelDensity
+        font.pointSize: 12
+        font.bold: true
+        text: window.width + " x " + window.height
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.Top
     }
 }
 
