@@ -11,7 +11,6 @@ qt6_add_qml_module(content
         Screen01.qml
         BerryButton.qml
         BasketDelegate.qml
-        PoffinStatDelegateUI.ui.qml
         PoffinStatDelegate.qml
     RESOURCES
         fonts/fonts.txt

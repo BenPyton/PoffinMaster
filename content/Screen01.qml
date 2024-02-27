@@ -55,31 +55,76 @@ Page {
             verticalAlignment: Text.AlignVCenter
         }
 
+        readonly property real statHeight: 3 * Screen.pixelDensity
+        readonly property real statSpacing: 1 * Screen.pixelDensity
+        readonly property real statFontSize: 1
+
         ListView {
-            id: stats
-            anchors.right: parent.right
+            id: statsLabel
             anchors.left: parent.left
             anchors.bottom: parent.bottom
+            width: contentItem.childrenRect.width
+            height: contentHeight
+            spacing: main.statSpacing
+            orientation: ListView.Vertical
+            interactive: false
+
+            model: Backend.poffin.stats
+            delegate: Label {
+                required property string label
+                text: label
+                anchors.right: parent.right
+                height: main.statHeight
+                font.pixelSize: main.statFontSize * height
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        ListView {
+            id: stats
+            anchors.right: statsValue.left
+            anchors.left: statsLabel.right
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: 2 * main.statSpacing
+            anchors.leftMargin: 2 * main.statSpacing
             height: contentItem.childrenRect.height
-            implicitHeight: height
-            spacing: 1 * Screen.pixelDensity
+            spacing: main.statSpacing
             orientation: ListView.Vertical
             interactive: false
 
             model: Backend.poffin.stats
             delegate: PoffinStatDelegate {
                 required property int index
-                required property string label
-                required bonusText
                 required value
                 required property color color
-                text: label
-                maxValue: Backend.poffin.maxTotal
+                maxValue: Backend.poffin.level
                 backgroundColor: "transparent"
                 anchors.right: parent.right
                 anchors.left: parent.left
-                labelWidth: 80
                 barColor: color
+                height: main.statHeight
+            }
+        }
+
+        ListView {
+            id: statsValue
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            width: contentItem.childrenRect.width
+            height: contentHeight
+            spacing: main.statSpacing
+            orientation: ListView.Vertical
+            interactive: false
+
+            model: Backend.poffin.stats
+            delegate: Label {
+                required property string bonusText
+                required property real value
+                text: "+" + value + " " + bonusText
+                anchors.left: parent.left
+                height: main.statHeight
+                font.pixelSize: main.statFontSize * height
+                verticalAlignment: Text.AlignVCenter
             }
         }
     }
