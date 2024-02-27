@@ -140,6 +140,9 @@ void Poffin::cook(const QList<Berry*>& basket)
         break;
     case Type::Foul:
         m_name = "Foul";
+        m_level = 2;
+        for (int i = 0; i < m_stats.count(); ++i)
+            m_stats.setStatValue(i, 0);
         break;
     case Type::Normal:
         if (nbFlavor == 1)
