@@ -6,9 +6,7 @@ Poffin::Poffin(QObject *parent)
 {}
 
 Poffin::~Poffin()
-{
-    qDebug() << "Poffin deleted!";
-}
+{}
 
 void Poffin::cook(const QList<Berry*>& basket)
 {
@@ -139,7 +137,7 @@ void Poffin::cook(const QList<Berry*>& basket)
         m_name = "";
         break;
     case Type::Foul:
-        m_name = "Foul";
+        m_name = tr("Foul");
         m_level = 2;
         for (int i = 0; i < m_stats.count(); ++i)
             m_stats.setStatValue(i, 0);
@@ -148,22 +146,20 @@ void Poffin::cook(const QList<Berry*>& basket)
         if (nbFlavor == 1)
             m_name = mainFlavor();
         else
-            m_name = mainFlavor() + "-" + subFlavor();
+            m_name = tr("%1-%2").arg(mainFlavor()).arg(subFlavor());
         break;
     case Type::Overripe:
-        m_name = "Overripe";
+        m_name = tr("Overripe");
         break;
     case Type::Rich:
-        m_name = "Rich";
+        m_name = tr("Rich");
         break;
     case Type::Mild:
-        m_name = "Mild";
+        m_name = tr("Mild");
         break;
     case Type::SuperMild:
-        m_name = "Super Mild";
+        m_name = tr("Super Mild");
         break;
-    default:
-        m_name = "TODO";
     }
 
     emit cooked();

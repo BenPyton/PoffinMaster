@@ -3,11 +3,11 @@
 PoffinStatsModel::PoffinStatsModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    m_data.append({"Spicy", 0, 0, QColor(240, 128, 48), "Coolness"});
-    m_data.append({"Dry", 0, 0, QColor(104, 144, 240), "Beauty"});
-    m_data.append({"Sweet", 0, 0, QColor(248, 88, 136), "Cuteness"});
-    m_data.append({"Bitter", 0, 0, QColor(120, 200, 80), "Cleverness"});
-    m_data.append({"Sour", 0, 0, QColor(248, 208, 48), "Toughness"});
+    m_data.append({tr("Spicy"), 0, 0, QColor(240, 128, 48), tr("Coolness")});
+    m_data.append({tr("Dry"), 0, 0, QColor(104, 144, 240), tr("Beauty")});
+    m_data.append({tr("Sweet"), 0, 0, QColor(248, 88, 136), tr("Cuteness")});
+    m_data.append({tr("Bitter"), 0, 0, QColor(120, 200, 80), tr("Cleverness")});
+    m_data.append({tr("Sour"), 0, 0, QColor(248, 208, 48), tr("Toughness")});
 }
 
 QVariant PoffinStatsModel::data(const QModelIndex &index, int role) const

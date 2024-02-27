@@ -33,8 +33,8 @@ Page {
 
         Label {
             id: poffinName
-            text: Backend.poffin.name + " Poffin LV." + Backend.poffin.level
-                  + " (x" + Backend.poffin.count + ")"
+            //: The resulting poffin string. %1 is the poffin name (e.g. Rich, Sweet-Bitter, Foul) %2 is the poffin level, %3 is the number of poffin produced
+            text: qsTr("%1 Poffin LV.%2 (x%3)").arg(Backend.poffin.name).arg(Backend.poffin.level).arg(Backend.poffin.count)
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: smoothText.top
@@ -45,7 +45,8 @@ Page {
 
         Label {
             id: smoothText
-            text: "Smoothness   " + Backend.poffin.smoothness
+            //: The smoothness of the berry.
+            text: qsTr("Smoothness") + "   " + Backend.poffin.smoothness
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: stats.top
@@ -135,7 +136,8 @@ Page {
         anchors.top: parent.top
         anchors.bottom: basket.top
         anchors.bottomMargin: page.columnSpacing * Screen.pixelDensity
-        text: "Select a berry"
+        //: Text displayed when no berry is selected
+        text: qsTr("Select a berry")
         opacity: 0.3
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
