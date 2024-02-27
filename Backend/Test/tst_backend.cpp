@@ -2,8 +2,6 @@
 #include "backend.h"
 #include "poffin.h"
 
-// add necessary includes here
-
 class Test_Backend : public QObject
 {
     Q_OBJECT
@@ -56,6 +54,9 @@ void Test_Backend::test_poffin_data()
     QTest::newRow("2-flavors (sweet-dry)") << "pecha,wiki,persim" << Poffin::Type::Normal << /*level:*/ 18 << /*count:*/ 3 << /*smooth:*/ 20 << StatArray{0,3,18,0,0};
     QTest::newRow("rich (equal stats)") << "oran,cheri,rawst" << Poffin::Type::Rich << /*level:*/ 8 << /*count:*/ 3 << /*smooth:*/ 20 << StatArray{8,8,0,8,0};
     QTest::newRow("rich (different stats)") << "wiki,pecha,iapapa,persim" << Poffin::Type::Rich << /*level:*/ 18 << /*count:*/ 4 << /*smooth:*/ 19 << StatArray{0,3,18,0,13};
+    QTest::newRow("mild (sour)") << "salac,rowap,payapa,belue" << Poffin::Type::Mild << /*level:*/ 93 << /*count:*/ 4 << /*smooth:*/ 37 << StatArray{18,0,28,0,93};
+    QTest::newRow("mild (bitter)") << "ganlon,jaboca,durin,coba" << Poffin::Type::Mild << /*level:*/ 93 << /*count:*/ 4 << /*smooth:*/ 37 << StatArray{0,28,0,93,18};
+    QTest::newRow("mild (spicy)") << "petaya,enigma,spelon,chople" << Poffin::Type::Mild << /*level:*/ 93 << /*count:*/ 4 << /*smooth:*/ 37 << StatArray{93,18,0,28,0};
 }
 
 void Test_Backend::test_poffin()
