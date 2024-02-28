@@ -36,25 +36,21 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        /*ToolButton {
+        ToolButton {
             id: settings
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            text: qsTr("Settings")
-            display: AbstractButton.IconOnly
-            icon.source: "icons/settings.png"
-            icon.color: "white"
-            icon.width: title.height
-            icon.height: title.height
-        }*/
-        Label {
-            id: versionName
-            text: Backend.version
-            anchors.left: parent.left
-            anchors.top: parent.top
-            padding: 0
-            font.pointSize: 12
-            font.family: Constants.font.family
+            //text: qsTr("Settings")
+            //: Opens the 'about' popup
+            text: qsTr("?")
+            font.pixelSize: title.font.pixelSize
+            //display: AbstractButton.IconOnly
+            //icon.source: "icons/settings.png"
+            //icon.color: "white"
+            //icon.width: title.height
+            //icon.height: title.height
+
+            onClicked: popup.open()
         }
 
         Label {
@@ -62,7 +58,7 @@ Window {
             visible: Backend.debug
             text: Backend.name
             anchors.left: parent.left
-            anchors.top: versionName.bottom
+            anchors.top: parent.top
             padding: 0
             font.pointSize: 12
             font.italic: true
@@ -101,6 +97,74 @@ Window {
         text: window.width + " x " + window.height
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.Top
+    }
+
+    Dialog {
+        id: popup
+        anchors.centerIn: parent
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        standardButtons: Dialog.Ok
+        font.pixelSize: 3 * Screen.pixelDensity
+
+        header: Label {
+            id: popupTitle
+            text: qsTr("About")
+            horizontalAlignment: Text.AlignHCenter
+            padding: 1 * Screen.pixelDensity
+            font.pixelSize: 4 * Screen.pixelDensity
+        }
+
+        readonly property real textSpacing: 2 * Screen.pixelDensity
+        readonly property string linkColor: "#20A0FF"
+
+        contentWidth: mainText.width
+        contentHeight: mainText.height + wrappingText.height + popup.textSpacing
+
+        Label {
+            id: mainText
+            textFormat: Text.RichText
+            text: qsTr("<span style=\"font-size:16pt\"><b>Poffin Master</b> v%1</span>
+                <br/>Developed by %3
+                <br/>Source code is under license <a href=\"%5\" style=\"color: %7;\">%4</a>
+                <br/>Compiled with Qt %2
+                <br/>Source code available on <a href=\"%6\" style=\"color: %7;\">Github</a>")
+            .arg(Backend.version)
+            .arg(Backend.qtVersion)
+            .arg(Backend.author)
+            .arg(Backend.license)
+            .arg(Backend.licenseUrl)
+            .arg(Backend.sourceUrl)
+            .arg(popup.linkColor)
+
+            onLinkActivated: (link) => Qt.openUrlExternally(link)
+
+            HoverHandler {
+                enabled: parent.hoveredLink
+                cursorShape: Qt.PointingHandCursor
+            }
+        }
+
+        Label {
+            id: wrappingText
+            anchors.top: mainText.bottom
+            topPadding: popup.textSpacing
+            text: qsTr("Berries and poffins images are used under the \"fair use\" and are owned by Game Freaks and ILCA.")
+            wrapMode: Text.Wrap
+            anchors.left: parent.left
+            anchors.right: parent.right
+        }
+
+        Overlay.modal: Rectangle {
+            color: "#80000000"
+
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: 120
+                }
+            }
+        }
     }
 }
 

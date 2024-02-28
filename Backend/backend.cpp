@@ -102,3 +102,37 @@ QString Backend::version() const
 {
     return QCoreApplication::applicationVersion();
 }
+
+QString Backend::qtVersion() const
+{
+    return QT_VERSION_STR;
+}
+
+QString Backend::authorName() const
+{
+    return "Beno\u00EEt Pelletier";
+}
+
+QString Backend::licenseName() const
+{
+    return "GPLv3";
+}
+
+QString Backend::licenseUrl() const
+{
+    return "https://www.gnu.org/licenses/gpl-3.0.html";
+}
+
+QString Backend::sourceUrl() const
+{
+    return "https://github.com/BenPyton/PoffinMaster";
+}
+
+bool Backend::isDebug() const
+{
+#ifdef QT_DEBUG
+    return true;
+#else
+    return false;
+#endif
+}

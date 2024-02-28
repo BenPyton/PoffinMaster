@@ -2,6 +2,50 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>App</name>
+    <message>
+        <location filename="../content/App.qml" line="45"/>
+        <source>?</source>
+        <extracomment>Opens the &apos;about&apos; popup</extracomment>
+        <translation>?</translation>
+    </message>
+    <message>
+        <location filename="../content/App.qml" line="113"/>
+        <source>About</source>
+        <translation>À Propos</translation>
+    </message>
+    <message>
+        <location filename="../content/App.qml" line="128"/>
+        <source>&lt;span style=&quot;font-size:16pt&quot;&gt;&lt;b&gt;Poffin Master&lt;/b&gt; v%1&lt;/span&gt;
+                &lt;br/&gt;Developed by %3
+                &lt;br/&gt;Source code is under license &lt;a href=&quot;%5&quot; style=&quot;color: %7;&quot;&gt;%4&lt;/a&gt;
+                &lt;br/&gt;Compiled with Qt %2
+                &lt;br/&gt;Source code available on &lt;a href=&quot;%6&quot; style=&quot;color: %7;&quot;&gt;Github&lt;/a&gt;</source>
+        <translation>&lt;span style=&quot;font-size:16pt&quot;&gt;&lt;b&gt;Poffin Master&lt;/b&gt; v%1&lt;/span&gt;
+                &lt;br/&gt;Developpé par %3
+                &lt;br/&gt;Le code source est sous license &lt;a href=&quot;%5&quot; style=&quot;color: %7;&quot;&gt;%4&lt;/a&gt;
+                &lt;br/&gt;Compilé avec Qt %2
+                &lt;br/&gt;Le code source est disponible sur &lt;a href=&quot;%6&quot; style=&quot;color: %7;&quot;&gt;Github&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;span style=&quot;font-size:16pt&quot;&gt;&lt;b&gt;Poffin Master&lt;/b&gt; v%1&lt;/span&gt;
+                &lt;br/&gt;Developped by %3
+                &lt;br/&gt;Source code is under license &lt;a href=&quot;%5&quot; style=&quot;color: %7;&quot;&gt;%4&lt;/a&gt;
+                &lt;br/&gt;Compiled with Qt %2
+                &lt;br/&gt;Source code available on &lt;a href=&quot;%6&quot; style=&quot;color: %7;&quot;&gt;Github&lt;/a&gt;</source>
+        <translation type="vanished">&lt;span style=&quot;font-size:16pt&quot;&gt;&lt;b&gt;Poffin Master&lt;/b&gt; v%1&lt;/span&gt;
+                &lt;br/&gt;Developpé par %3
+                &lt;br/&gt;Le code source est sous license &lt;a href=&quot;%5&quot; style=&quot;color: %7;&quot;&gt;%4&lt;/a&gt;
+                &lt;br/&gt;Compilé avec Qt %2
+                &lt;br/&gt;Le code source est disponible sur &lt;a href=&quot;%6&quot; style=&quot;color: %7;&quot;&gt;Github&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../content/App.qml" line="153"/>
+        <source>Berries and poffins images are used under the &quot;fair use&quot; and are owned by Game Freaks and ILCA.</source>
+        <translation>Les images des baies et des poffins sont la propriété de Game Feaks et ILCA.</translation>
+    </message>
+</context>
+<context>
     <name>Poffin</name>
     <message>
         <location filename="../Backend/poffin.cpp" line="140"/>

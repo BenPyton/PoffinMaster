@@ -5,7 +5,12 @@ import Qt.labs.qmlmodels // TableModel
 QtObject {
     id: backend
     property string name: "Qml Mockup"
-    property string version: "v0.1.0"
+    property string version: "0.1.0"
+    property string qtVersion: "6.6.1"
+    property string author: "Beno\u00EEt Pelletier"
+    property string license: "GPLv3"
+    property string licenseUrl: "https://www.gnu.org/licenses/gpl-3.0.html"
+    property string sourceUrl: "https://github.com/BenPyton/PoffinMaster"
     property bool debug: true
 
     property QtObject poffin: Poffin {}

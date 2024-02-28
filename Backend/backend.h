@@ -15,6 +15,11 @@ class Backend : public QObject, public Serializable
     QML_SINGLETON
     Q_PROPERTY(QString name READ name CONSTANT)
     Q_PROPERTY(QString version READ version CONSTANT)
+    Q_PROPERTY(QString qtVersion READ qtVersion CONSTANT)
+    Q_PROPERTY(QString author READ authorName CONSTANT)
+    Q_PROPERTY(QString license READ licenseName CONSTANT)
+    Q_PROPERTY(QString licenseUrl READ licenseUrl CONSTANT)
+    Q_PROPERTY(QString sourceUrl READ sourceUrl CONSTANT)
     Q_PROPERTY(bool debug READ isDebug CONSTANT)
     Q_PROPERTY(BerryListModel* berries READ berries NOTIFY berriesChanged)
     Q_PROPERTY(BerryListModel* basket READ basket NOTIFY basketChanged)
@@ -24,8 +29,16 @@ public:
     explicit Backend(QObject *parent = nullptr);
     virtual ~Backend() override;
 
+    // App details
     QString name() const;
     QString version() const;
+    QString qtVersion() const;
+    QString authorName() const;
+    QString licenseName() const;
+    QString licenseUrl() const;
+    QString sourceUrl() const;
+    bool isDebug() const;
+
     BerryListModel* berries() { return &m_berries; }
     BerryListModel* basket() { return &m_basket; }
 
@@ -33,14 +46,6 @@ public:
 
     virtual QJsonObject toJson() const override;
     bool fromJson(const QJsonObject& json); // not static because singleton
-
-    bool isDebug() const {
-#ifdef QT_DEBUG
-        return true;
-#else
-        return false;
-#endif
-    }
 
 signals:
     void berriesChanged();
