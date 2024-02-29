@@ -98,7 +98,7 @@ QtObject {
             if (value > level)
                 level = value;
             stats.setProperty(k, "value", value);
-            console.log("value: " + value + " (max: " + level + ")");
+            //console.log("value: " + value + " (max: " + level + ")");
         }
         maxTotal = Math.max(10, level);
         count = basket.count;
@@ -116,10 +116,16 @@ QtObject {
         else if (nbFlavor == 3)
             type = Poffin.Type.Rich;
 
+        randomTimer.stop();
         // Update poffin name
         name = "None";
         switch (type)
         {
+        case Poffin.Foul:
+            level = 2;
+            name = "Foul"
+            randomTimer.start();
+            break;
         case Poffin.Type.Normal:
             if (nbFlavor == 2)
                 name = stats.get(mainFlavor).label + "-" + stats.get(subFlavor).label;
@@ -127,7 +133,9 @@ QtObject {
                 name = stats.get(mainFlavor).label;
             break;
         case Poffin.Type.Overripe:
+            level = 2;
             name = "Overripe";
+            randomTimer.start();
             break;
         case Poffin.Type.Rich:
             name = "Rich";
@@ -140,7 +148,41 @@ QtObject {
             break;
         }
 
-        console.log("Poffin cooked!");
+        //console.log("Poffin cooked!");
         cooked();
+    }
+
+    property Timer randomTimer: Timer {
+        //id: randomTimer
+        triggeredOnStart: true
+        interval: 1000
+        repeat: true
+
+        onTriggered: {
+            setRandomStats();
+        }
+    }
+
+    function setRandomStats()
+    {
+        let nbRandomStat = 1;
+        let statIndices = [0, 1, 2, 3, 4];
+        if (type === Poffin.Foul)
+            nbRandomStat = 2;
+        else if (type === Poffin.Overripe)
+            nbRandomStat = 3;
+
+        while (nbRandomStat < statIndices.length)
+        {
+            let i = Math.floor(statIndices.length * Math.random());
+            console.log("Take out " + i + " | " + nbRandomStat);
+            statIndices.splice(i, 1);
+            //++nbRandomStat;
+        }
+
+        for(let i = 0; i < 5; ++i)
+        {
+            stats.setProperty(i, "value", (statIndices.indexOf(i) < 0) ? 0 : 2);
+        }
     }
 }

@@ -74,7 +74,7 @@ Page {
             delegate: Label {
                 required property string label
                 text: label
-                anchors.right: parent.right
+                //anchors.right: parent.right
                 height: main.statHeight
                 font.pixelSize: main.statFontSize * height
                 verticalAlignment: Text.AlignVCenter
@@ -122,7 +122,6 @@ Page {
                 required property string bonusText
                 required property real value
                 text: "+" + value + " " + bonusText
-                anchors.left: parent.left
                 height: main.statHeight
                 font.pixelSize: main.statFontSize * height
                 verticalAlignment: Text.AlignVCenter

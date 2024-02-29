@@ -52,12 +52,9 @@ public:
 
 signals:
     void cooked();
-    //void statsChanged();
-    //void maxTotalChanged();
-    //void smoothnessChanged();
-    //void levelChanged();
-    //void typeChanged();
-    //void countChanged();
+
+protected:
+    virtual void timerEvent(QTimerEvent* event) override;
 
 private:
     const int MINIMUM_MAXTOTAL {10};
@@ -70,6 +67,7 @@ private:
     int m_mainFlavor {0};
     int m_subFlavor {0};
     QString m_name {"Null"};
+    int m_timerId {0};
 };
 
 /*template<>

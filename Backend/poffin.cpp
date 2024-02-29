@@ -1,5 +1,6 @@
 #include "poffin.h"
 #include "berry.h"
+#include <QRandomGenerator>
 
 Poffin::Poffin(QObject *parent)
     : QObject{parent}
@@ -42,7 +43,7 @@ void Poffin::cook(const QList<Berry*>& basket)
         {
             statsSum[i] += berry->statValue(i);
         }
-        qDebug() << "Stat Sum: " << statsSum[i];
+        //qDebug() << "Stat Sum: " << statsSum[i];
     }
 
     /* Apply flavor calculation as follow:
@@ -59,7 +60,7 @@ void Poffin::cook(const QList<Berry*>& basket)
         value -= statsSum[(i+1) % NB_STAT];
         negativeStatCount += (value < 0);
         m_stats.setStatValue(i, value);
-        qDebug() << "Stat weakened: " << value;
+        //qDebug() << "Stat weakened: " << value;
     }
 
     /* then for each flavor, substract the number of negative flavors
@@ -74,7 +75,7 @@ void Poffin::cook(const QList<Berry*>& basket)
     {
         int finalFlavorValue = qBound(0, m_stats.statValue(i) - negativeStatCount, 100);
         m_stats.setStatValue(i, finalFlavorValue);
-        qDebug() << "Stat final:" << finalFlavorValue;
+        //qDebug() << "Stat final:" << finalFlavorValue;
 
         nbFlavor += (finalFlavorValue > 0);
         if (finalFlavorValue > m_stats.statValue(m_mainFlavor))
@@ -130,6 +131,9 @@ void Poffin::cook(const QList<Berry*>& basket)
     else if (nbFlavor == 3)
         m_type = Type::Rich;
 
+    if (m_timerId != 0)
+        killTimer(m_timerId);
+
     // Update the poffin name
     switch (m_type)
     {
@@ -139,6 +143,7 @@ void Poffin::cook(const QList<Berry*>& basket)
     case Type::Foul:
         m_name = tr("Foul");
         m_level = 2;
+        m_timerId = startTimer(1000);
         for (int i = 0; i < m_stats.count(); ++i)
             m_stats.setStatValue(i, 0);
         break;
@@ -150,6 +155,8 @@ void Poffin::cook(const QList<Berry*>& basket)
         break;
     case Type::Overripe:
         m_name = tr("Overripe");
+        m_level = 2;
+        m_timerId = startTimer(1000);
         break;
     case Type::Rich:
         m_name = tr("Rich");
@@ -178,4 +185,26 @@ Poffin* Poffin::fromJson(const QJsonObject& json)
     Q_UNUSED(json)
     Q_ASSERT(false);
     return nullptr;
+}
+
+void Poffin::timerEvent(QTimerEvent* event)
+{
+    Q_UNUSED(event)
+    int nbRandomStat = 1;
+    if (m_type == Type::Foul)
+        nbRandomStat = 2;
+    else if (m_type == Type::Overripe)
+        nbRandomStat = 3;
+
+    QList<int> statIndices = {0, 1, 2, 3, 4};
+    while (statIndices.count() > nbRandomStat)
+    {
+        qsizetype k = static_cast<qsizetype>(QRandomGenerator::global()->generate() % static_cast<quint32>(statIndices.count()));
+        statIndices.removeAt(k);
+    }
+
+    for (int i = 0; i < m_stats.count(); ++i)
+    {
+        m_stats.setStatValue(i, (statIndices.contains(i)) ? m_level : 0);
+    }
 }
