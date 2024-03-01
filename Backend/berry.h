@@ -26,7 +26,7 @@ public:
     Berry(QString name, QString iconPath = "");
 
     QString name() const { return m_name; }
-    QString iconPath() const { return m_iconPath; }
+    QString iconPath() const;
 
     int operator[](BerryStat stat) const { return statValue(stat); }
     int operator[](int stat) const { return statValue(stat); }

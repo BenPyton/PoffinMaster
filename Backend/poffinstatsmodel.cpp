@@ -3,11 +3,11 @@
 PoffinStatsModel::PoffinStatsModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    m_data.append({tr("Spicy"), 0, 0, QColor(240, 128, 48), tr("Coolness")});
-    m_data.append({tr("Dry"), 0, 0, QColor(104, 144, 240), tr("Beauty")});
-    m_data.append({tr("Sweet"), 0, 0, QColor(248, 88, 136), tr("Cuteness")});
-    m_data.append({tr("Bitter"), 0, 0, QColor(120, 200, 80), tr("Cleverness")});
-    m_data.append({tr("Sour"), 0, 0, QColor(248, 208, 48), tr("Toughness")});
+    m_data.append({QT_TR_NOOP("spicy"), 0, 0, QColor(240, 128, 48), QT_TR_NOOP("coolness")});
+    m_data.append({QT_TR_NOOP("dry"), 0, 0, QColor(104, 144, 240), QT_TR_NOOP("beauty")});
+    m_data.append({QT_TR_NOOP("sweet"), 0, 0, QColor(248, 88, 136), QT_TR_NOOP("cuteness")});
+    m_data.append({QT_TR_NOOP("bitter"), 0, 0, QColor(120, 200, 80), QT_TR_NOOP("cleverness")});
+    m_data.append({QT_TR_NOOP("sour"), 0, 0, QColor(248, 208, 48), QT_TR_NOOP("toughness")});
 }
 
 QVariant PoffinStatsModel::data(const QModelIndex &index, int role) const
@@ -30,7 +30,7 @@ QVariant PoffinStatsModel::data(const QModelIndex &index, int role) const
     switch(role)
     {
     case Role::Label:
-        return data.label;
+        return tr(data.label);
     case Role::Key:
         return data.key;
     case Role::Value:
@@ -38,7 +38,7 @@ QVariant PoffinStatsModel::data(const QModelIndex &index, int role) const
     case Role::Color:
         return data.color;
     case Role::BonusText:
-        return data.bonusText;
+        return tr(data.bonusText);
     default:
         qWarning() << "[PoffinStatsModel] Unkown role";
     }
@@ -83,7 +83,7 @@ bool PoffinStatsModel::setData(const QModelIndex &index, const QVariant &value, 
     switch(role)
     {
     case Role::Label:
-        data.label = value.toString();
+        //data.label = value.toString();
         break;
     case Role::Key:
         data.key = value.toInt();

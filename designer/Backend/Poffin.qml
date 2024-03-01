@@ -33,18 +33,16 @@ QtObject {
             ListElement {label: "Sour"; key:4; value: 10; bonusText: "Toughness"; color: "#f8d030"}
     }
 
-    property real maxTotal: 100
     property int smoothness: 0
     property int level: 0
     property int count: 0
     property int type: Poffin.Type.Null
     property string name: "Null"
+    property string imageSource: "images/poffins/spicy-bitter.png"
 
     signal cooked() // called when a new poffin is cooked
 
     function cook(basket){
-        //let berries = basket.toArray();
-
         let smoothSum = 0;
         let sums = [0,0,0,0,0];
         for (let i = 0; i < basket.count; ++i)
@@ -100,7 +98,6 @@ QtObject {
             stats.setProperty(k, "value", value);
             //console.log("value: " + value + " (max: " + level + ")");
         }
-        maxTotal = Math.max(10, level);
         count = basket.count;
 
         // Update poffin type
@@ -147,6 +144,8 @@ QtObject {
             name = "Super Mild";
             break;
         }
+
+
 
         //console.log("Poffin cooked!");
         cooked();

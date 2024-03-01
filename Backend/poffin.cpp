@@ -69,8 +69,8 @@ void Poffin::cook(const QList<Berry*>& basket)
      * then clamp flavors between 0 and 100
      */
     int nbFlavor = 0;
-    m_mainFlavor = 0;
-    m_subFlavor = 0;
+    int mainFlavor = 0;
+    int subFlavor = 0;
     for(int i = 0; i < NB_STAT; ++i)
     {
         int finalFlavorValue = qBound(0, m_stats.statValue(i) - negativeStatCount, 100);
@@ -78,13 +78,13 @@ void Poffin::cook(const QList<Berry*>& basket)
         //qDebug() << "Stat final:" << finalFlavorValue;
 
         nbFlavor += (finalFlavorValue > 0);
-        if (finalFlavorValue > m_stats.statValue(m_mainFlavor))
+        if (finalFlavorValue > m_stats.statValue(mainFlavor))
         {
-            m_subFlavor = m_mainFlavor;
-            m_mainFlavor = i;
+            subFlavor = mainFlavor;
+            mainFlavor = i;
         }
-        else if (m_subFlavor == m_mainFlavor || finalFlavorValue > m_stats.statValue(m_subFlavor))
-            m_subFlavor = i;
+        else if (subFlavor == mainFlavor || finalFlavorValue > m_stats.statValue(subFlavor))
+            subFlavor = i;
     }
     qDebug() << "Nb Flavor:" << nbFlavor;
 
@@ -98,7 +98,6 @@ void Poffin::cook(const QList<Berry*>& basket)
             m_level = stat.value;
     }
     qDebug() << "Level: " << m_level;
-    m_maxTotal = m_level;
 
     /* Poffin type:
      * Main flavor: highest
@@ -134,14 +133,19 @@ void Poffin::cook(const QList<Berry*>& basket)
     if (m_timerId != 0)
         killTimer(m_timerId);
 
+    QString poffinWord = tr("poffin");
+    static QString s_imageFolder = "images/poffins/";
+
     // Update the poffin name
     switch (m_type)
     {
     case Type::Null:
         m_name = "";
+        m_imageSource = "";
         break;
     case Type::Foul:
-        m_name = tr("Foul");
+        m_name = tr("foul %1").arg(poffinWord);
+        m_imageSource = s_imageFolder + "foul.png";
         m_level = 2;
         m_timerId = startTimer(1000);
         for (int i = 0; i < m_stats.count(); ++i)
@@ -149,24 +153,47 @@ void Poffin::cook(const QList<Berry*>& basket)
         break;
     case Type::Normal:
         if (nbFlavor == 1)
-            m_name = mainFlavor();
+        {
+            const char* flavorName = m_stats.statName(mainFlavor);
+            m_name = tr("%2 %1").arg(poffinWord).arg(PoffinStatsModel::tr(flavorName));
+            m_imageSource = s_imageFolder + flavorName + ".png";
+        }
         else
-            m_name = tr("%1-%2").arg(mainFlavor()).arg(subFlavor());
+        {
+            const char* mainFlavorName = m_stats.statName(mainFlavor);
+            const char* subFlavorName = m_stats.statName(subFlavor);
+            m_name = tr("%2-%3 %1").arg(poffinWord).arg(PoffinStatsModel::tr(mainFlavorName)).arg(PoffinStatsModel::tr(subFlavorName));
+            m_imageSource = s_imageFolder + mainFlavorName + "-" + subFlavorName + ".png";
+        }
         break;
     case Type::Overripe:
-        m_name = tr("Overripe");
+        m_name = tr("overripe %1").arg(poffinWord);
+        m_imageSource = s_imageFolder + "overripe.png";
         m_level = 2;
         m_timerId = startTimer(1000);
         break;
     case Type::Rich:
-        m_name = tr("Rich");
+        m_name = tr("rich %1").arg(poffinWord);
+        m_imageSource = s_imageFolder + "rich.png";
         break;
     case Type::Mild:
-        m_name = tr("Mild");
+        m_name = tr("mild %1").arg(poffinWord);
+        m_imageSource = s_imageFolder + "mild.png";
         break;
     case Type::SuperMild:
-        m_name = tr("Super Mild");
+        m_name = tr("super mild %1").arg(poffinWord);
+        m_imageSource = s_imageFolder + "supermild.png";
         break;
+    }
+
+    // Capitalized first letter of each word
+    bool wasLetter = false;
+    for (qsizetype i = 0; i < m_name.size(); ++i)
+    {
+        bool isLetter = m_name[i].isLetter();
+        if (isLetter && !wasLetter)
+            m_name[i] = m_name[i].toUpper();
+        wasLetter = isLetter;
     }
 
     emit cooked();

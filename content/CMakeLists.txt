@@ -2,6 +2,10 @@
 ### Do not change
 
 qt_add_library(content STATIC)
+
+file(GLOB BERRY_IMAGES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "images/berries/*.png")
+file(GLOB POFFIN_IMAGES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "images/poffins/*.png")
+
 qt6_add_qml_module(content
     URI "content"
     VERSION 1.0
@@ -15,69 +19,6 @@ qt6_add_qml_module(content
     RESOURCES
         fonts/fonts.txt
         icons/settings.png
-        images/aguav.png
-        images/apicot.png
-        images/aspear.png
-        images/babiri.png
-        images/belue.png
-        images/bluk.png
-        images/charti.png
-        images/cheri.png
-        images/chesto.png
-        images/chilan.png
-        images/chople.png
-        images/coba.png
-        images/colbur.png
-        images/cornn.png
-        images/custap.png
-        images/durin.png
-        images/enigma.png
-        images/figy.png
-        images/ganlon.png
-        images/grepa.png
-        images/haban.png
-        images/hondew.png
-        images/iapapa.png
-        images/jaboca.png
-        images/kasib.png
-        images/kebia.png
-        images/kelpsy.png
-        images/lansat.png
-        images/leppa.png
-        images/liechi.png
-        images/lum.png
-        images/mago.png
-        images/magost.png
-        images/micle.png
-        images/nanab.png
-        images/nomel.png
-        images/occa.png
-        images/oran.png
-        images/pamtre.png
-        images/passho.png
-        images/payapa.png
-        images/pecha.png
-        images/persim.png
-        images/petaya.png
-        images/pinap.png
-        images/pomeg.png
-        images/qualot.png
-        images/rabuta.png
-        images/rawst.png
-        images/razz.png
-        images/rindo.png
-        images/roseli.png
-        images/rowap.png
-        images/salac.png
-        images/shuca.png
-        images/sitrus.png
-        images/spelon.png
-        images/starf.png
-        images/tamato.png
-        images/tanga.png
-        images/wacan.png
-        images/watmel.png
-        images/wepear.png
-        images/wiki.png
-        images/yache.png
+        ${BERRY_IMAGES}
+        ${POFFIN_IMAGES}
 )

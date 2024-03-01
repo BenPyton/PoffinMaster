@@ -12,7 +12,7 @@ Window {
     height: Constants.height
 
     visible: true
-    title: "Poffin Master"
+    title: "poffin master"
 
     color: Material.primaryColor
 
@@ -21,7 +21,7 @@ Window {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
-        implicitHeight: title.height + 2*padding
+        implicitHeight: title.height + 2 * padding
 
         padding: 10
 
@@ -34,6 +34,7 @@ Window {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
+            font.capitalization: Font.Capitalize
         }
 
         ToolButton {
@@ -110,10 +111,11 @@ Window {
 
         header: Label {
             id: popupTitle
-            text: qsTr("About")
+            text: qsTr("about")
             horizontalAlignment: Text.AlignHCenter
             padding: 1 * Screen.pixelDensity
             font.pixelSize: 4 * Screen.pixelDensity
+            font.capitalization: Font.Capitalize
         }
 
         readonly property real textSpacing: 2 * Screen.pixelDensity
@@ -125,7 +127,7 @@ Window {
         Label {
             id: mainText
             textFormat: Text.RichText
-            text: qsTr("<span style=\"font-size:16pt\"><b>Poffin Master</b> v%1</span>
+            text: qsTr("<b>Poffin Master</b> v%1
                 <br/>Developed by %3
                 <br/>Source code is under license <a href=\"%5\" style=\"color: %7;\">%4</a>
                 <br/>Compiled with Qt %2

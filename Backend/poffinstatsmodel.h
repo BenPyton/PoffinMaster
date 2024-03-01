@@ -7,11 +7,11 @@
 
 struct PoffinStat
 {
-    QString label;
+    const char* label;
     int key;
     int value;
     QColor color;
-    QString bonusText;
+    const char* bonusText;
 };
 
 class PoffinStatsModel : public QAbstractListModel
@@ -43,7 +43,7 @@ public:
         setData(this->index(index), value, Role::Value);
     }
 
-    const QString& statName(int index) const { return m_data[index].label; }
+    const char* statName(int index) const { return m_data[index].label; }
 
 signals:
     void countChanged();

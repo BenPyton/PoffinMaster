@@ -31,10 +31,23 @@ Page {
         anchors.top: parent.top
         visible: (Backend.poffin.type !== Poffin.Null)
 
+        Image {
+            id: poffinImage
+            source: Backend.poffin.imageSource
+            fillMode: Image.PreserveAspectFit
+            anchors.right: parent.right
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: poffinName.top
+            anchors.margins: 3 * Screen.pixelDensity
+            smooth: false
+            visible: height > 10 * Screen.pixelDensity
+        }
+
         Label {
             id: poffinName
             //: The resulting poffin string. %1 is the poffin name (e.g. Rich, Sweet-Bitter, Foul) %2 is the poffin level, %3 is the number of poffin produced
-            text: qsTr("%1 Poffin LV.%2 (x%3)").arg(Backend.poffin.name).arg(Backend.poffin.level).arg(Backend.poffin.count)
+            text: qsTr("%1 LV.%2 (x%3)").arg(Backend.poffin.name).arg(Backend.poffin.level).arg(Backend.poffin.count)
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: smoothText.top
@@ -46,12 +59,13 @@ Page {
         Label {
             id: smoothText
             //: The smoothness of the berry.
-            text: qsTr("Smoothness") + "   " + Backend.poffin.smoothness
+            text: qsTr("smoothness") + "   " + Backend.poffin.smoothness
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: stats.top
             anchors.bottomMargin: page.columnSpacing * Screen.pixelDensity
             font.pointSize: 18
+            font.capitalization: Font.Capitalize
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
@@ -77,6 +91,7 @@ Page {
                 //anchors.right: parent.right
                 height: main.statHeight
                 font.pixelSize: main.statFontSize * height
+                font.capitalization: Font.Capitalize
                 verticalAlignment: Text.AlignVCenter
             }
         }
@@ -124,6 +139,7 @@ Page {
                 text: "+" + value + " " + bonusText
                 height: main.statHeight
                 font.pixelSize: main.statFontSize * height
+                font.capitalization: Font.Capitalize
                 verticalAlignment: Text.AlignVCenter
             }
         }

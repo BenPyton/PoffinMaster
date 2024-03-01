@@ -23,8 +23,8 @@ QtObject {
 
     property ListModel berries: ListModel {
         ListElement {
-            name: "mCeriz"
-            iconPath: "images/cheri.png"
+            name: "cheri"
+            iconPath: "images/berries/cheri.png"
             spicy: 10
             dry: 0
             sweet: 0
@@ -33,8 +33,8 @@ QtObject {
             smoothness: 20
         }
         ListElement {
-            name: "mFraive"
-            iconPath: "images/rawst.png"
+            name: "rawst"
+            iconPath: "images/berries/rawst.png"
             spicy: 0
             dry: 0
             sweet: 0
@@ -43,8 +43,8 @@ QtObject {
             smoothness: 30
         }
         ListElement {
-            name: "mPecha"
-            iconPath: "images/pecha.png"
+            name: "pecha"
+            iconPath: "images/berries/pecha.png"
             spicy: 0
             dry: 0
             sweet: 10
@@ -53,8 +53,8 @@ QtObject {
             smoothness: 25
         }
         ListElement {
-            name: "mOran"
-            iconPath: "images/oran.png"
+            name: "oran"
+            iconPath: "images/berries/oran.png"
             spicy: 10
             dry: 10
             sweet: 0
