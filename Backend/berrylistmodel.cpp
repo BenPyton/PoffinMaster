@@ -19,7 +19,21 @@
 #include "berry.h"
 #include <algorithm>
 
-BerryListModel::BerryListModel() {}
+BerryListModel::BerryListModel(QObject* parent)
+    : QAbstractListModel{parent}
+{}
+
+int BerryListModel::count() const
+{
+    return static_cast<int>(m_data.count());
+}
+
+Berry* BerryListModel::get(int index) const
+{
+    if (index >= 0 && index < count())
+        return m_data[index];
+    return nullptr;
+}
 
 Berry* BerryListModel::getByName(const QString& name) const
 {
@@ -30,6 +44,29 @@ Berry* BerryListModel::getByName(const QString& name) const
     if (it == m_data.cend())
         return nullptr;
     return *it;
+}
+
+void BerryListModel::append(Berry* data)
+{
+    int index = static_cast<int>(m_data.count());
+    beginInsertRows(QModelIndex(), index, index);
+    m_data.append(data);
+    endInsertRows();
+    emit countChanged();
+}
+
+void BerryListModel::remove(int index, int count)
+{
+    beginRemoveRows(QModelIndex(), index, index + count - 1);
+    m_data.remove(index);
+    endRemoveRows();
+    emit countChanged();
+}
+
+void BerryListModel::clear()
+{
+    removeRows(0, count());
+    emit countChanged();
 }
 
 QVariant BerryListModel::data(const QModelIndex &index, int role) const
@@ -74,6 +111,6 @@ int BerryListModel::rowCount(const QModelIndex &parent) const
 
 QHash<int,QByteArray> BerryListModel::roleNames() const
 {
-    static QHash<int, QByteArray> _roleNames = {{Role::Name, "name"}, {Role::IconPath, "iconPath"}};
-    return _roleNames;
+    static QHash<int, QByteArray> s_roleNames = {{Role::Name, "name"}, {Role::IconPath, "iconPath"}};
+    return s_roleNames;
 }

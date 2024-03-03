@@ -15,8 +15,8 @@
  * along with Poffin Master. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef DATAOBJECTMODEL_H
-#define DATAOBJECTMODEL_H
+#ifndef BERRYLISTMODEL_H
+#define BERRYLISTMODEL_H
 
 #include <QAbstractListModel>
 #include <QQmlListProperty>
@@ -36,40 +36,14 @@ public:
         IconPath
     };
 
-    BerryListModel();
+    explicit BerryListModel(QObject* parent = nullptr);
 
-    int count() const { return static_cast<int>(m_data.count()); }
-    Q_INVOKABLE Berry* get(int index) const
-    {
-        if (index >= 0 && index < count())
-            return m_data[index];
-        return nullptr;
-    }
-
+    int count() const;
+    Q_INVOKABLE Berry* get(int index) const;
     Berry* getByName(const QString& name) const;
-
-    Q_INVOKABLE void append(Berry* data)
-    {
-        int index = static_cast<int>(m_data.count());
-        beginInsertRows(QModelIndex(), index, index);
-        m_data.append(data);
-        endInsertRows();
-        emit countChanged();
-    }
-
-    Q_INVOKABLE void remove(int index, int count = 1)
-    {
-        beginRemoveRows(QModelIndex(), index, index + count - 1);
-        m_data.remove(index);
-        endRemoveRows();
-        emit countChanged();
-    }
-
-    Q_INVOKABLE void clear()
-    {
-        removeRows(0, count());
-        emit countChanged();
-    }
+    Q_INVOKABLE void append(Berry* data);
+    Q_INVOKABLE void remove(int index, int count = 1);
+    Q_INVOKABLE void clear();
 
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -84,4 +58,4 @@ private:
     QList<Berry*> m_data;
 };
 
-#endif // DATAOBJECTMODEL_H
+#endif // BERRYLISTMODEL_H
