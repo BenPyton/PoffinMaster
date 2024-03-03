@@ -1,11 +1,20 @@
-
-
 /*
-This is a UI file (.ui.qml) that is intended to be edited in Qt Design Studio only.
-It is supposed to be strictly declarative and only uses a subset of QML. If you edit
-this file manually, you might introduce QML code that is not supported by Qt Design Studio.
-Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on .ui.qml files.
-*/
+ * Copyright 2024 Benoit Pelletier
+ *
+ * This file is part of Poffin Master.
+ * Poffin Master is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 3
+ * as published by the Free Software Foundation.
+ *
+ * Poffin Master is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Poffin Master. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Controls.Material
