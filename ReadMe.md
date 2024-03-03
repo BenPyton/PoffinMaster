@@ -1,6 +1,6 @@
 # Poffin Master
 
-A simple Qt Quick application design for mobile devices.\
+A simple Qt Quick application designed for mobile devices.\
 Predict easily the resulting poffin from a selection of berries in *Pokémon Brilliant Diamond* and *Shining Pearl*.
 
 ## Compiling
@@ -13,6 +13,9 @@ You can build this project with [Qt 6.6.1](http://download.qt.io/official_releas
 The source code of this project is under GNU General Public License (GPLv3) version 3.\
 Copyright (c) 2024 Benoît Pelletier\
 Please refer to [the software license text](LICENSE).
+
+Images of berries and poffins are used under "fair use" and are owned by Game Freaks and ILCA.
+
 ## *Support Me!*
 
  If you like *Poffin Master*, please consider tipping:
