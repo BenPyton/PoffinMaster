@@ -73,6 +73,10 @@ Project {
         directory: "asset_imports"
     }
 
+    Files {
+        filter: "*.qrc"
+    }
+
     Environment {
         QT_QUICK_CONTROLS_CONF: "qtquickcontrols2.conf"
         QT_AUTO_SCREEN_SCALE_FACTOR: "1"
@@ -116,7 +120,7 @@ Project {
     }
 
     multilanguageSupport: true
-    supportedLanguages: ["en"]
+    supportedLanguages: ["en", "fr"]
     primaryLanguage: "en"
 
 }

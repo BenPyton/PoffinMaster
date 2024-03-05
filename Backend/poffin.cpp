@@ -151,7 +151,7 @@ void Poffin::cook(const QList<Berry*>& basket)
         killTimer(m_timerId);
 
     QString poffinWord = tr("poffin");
-    static QString s_imageFolder = "images/poffins/";
+    static QString s_imageFolder = "qrc:/images/poffins/";
 
     // Update the poffin name
     switch (m_type)

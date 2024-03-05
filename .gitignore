@@ -68,3 +68,5 @@ ehthumbs_vista.db
 .DS_Store
 .AppleDouble
 .LSOverride
+
+*.rcc

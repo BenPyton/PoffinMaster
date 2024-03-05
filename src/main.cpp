@@ -21,12 +21,25 @@
 #include <QTranslator>
 #include <QLocale>
 #include <QString>
+#include <QResource>
 
 #include "app_environment.h"
 #include "import_qml_components_plugins.h"
 #include "import_qml_plugins.h"
 
+#ifdef QT_DEBUG
+#include <QDirIterator>
+#endif
+
 using namespace Qt::Literals::StringLiterals;
+
+void RegisterResourceFile(const char* resourceFile)
+{
+    if (QResource::registerResource(resourceFile))
+        qDebug() << "Resource file '" << resourceFile << "' registered successfully!";
+    else
+        qCritical() << "Resource file '" << resourceFile << "' not registered.";
+}
 
 int main(int argc, char *argv[])
 {
@@ -46,6 +59,18 @@ int main(int argc, char *argv[])
     {
         qCritical() << "Translation not loaded!";
     }
+
+    // Import external resources to the application
+    RegisterResourceFile("assets:/berry_images.rcc");
+    RegisterResourceFile("assets:/poffin_images.rcc");
+
+#ifdef QT_DEBUG
+    // List all resources available
+    QDirIterator it(":", QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        qDebug() << it.next();
+    }
+#endif
 
     QQmlApplicationEngine engine;
     const QUrl url(u"qrc:/qt/qml/Main/main.qml"_qs);

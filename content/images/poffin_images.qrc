@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>poffins/bitter.png</file>
+        <file>poffins/bitter-dry.png</file>
+        <file>poffins/bitter-sour.png</file>
+        <file>poffins/bitter-spicy.png</file>
+        <file>poffins/bitter-sweet.png</file>
+        <file>poffins/dry.png</file>
+        <file>poffins/dry-bitter.png</file>
+        <file>poffins/dry-sour.png</file>
+        <file>poffins/dry-spicy.png</file>
+        <file>poffins/dry-sweet.png</file>
+        <file>poffins/foul.png</file>
+        <file>poffins/mild.png</file>
+        <file>poffins/overripe.png</file>
+        <file>poffins/rich.png</file>
+        <file>poffins/sour.png</file>
+        <file>poffins/sour-dry.png</file>
+        <file>poffins/sour-spicy.png</file>
+        <file>poffins/sour-sweet.png</file>
+        <file>poffins/spicy.png</file>
+        <file>poffins/spicy-bitter.png</file>
+        <file>poffins/spicy-dry.png</file>
+        <file>poffins/spicy-sour.png</file>
+        <file>poffins/spicy-sweet.png</file>
+        <file>poffins/sweet.png</file>
+        <file>poffins/sweet-bitter.png</file>
+        <file>poffins/sweet-dry.png</file>
+        <file>poffins/sweet-sour.png</file>
+        <file>poffins/sweet-spicy.png</file>
+    </qresource>
+</RCC>

@@ -35,7 +35,7 @@ Berry::Berry(QString name, QString iconPath)
 
 QString Berry::iconPath() const
 {
-    return "images/berries/" + m_name.toLower() + ".png";
+    return "qrc:/images/berries/" + m_name.toLower() + ".png";
 }
 
 QJsonObject Berry::toJson() const

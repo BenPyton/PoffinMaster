@@ -3,9 +3,6 @@
 
 qt_add_library(content STATIC)
 
-file(GLOB BERRY_IMAGES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "images/berries/*.png")
-file(GLOB POFFIN_IMAGES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "images/poffins/*.png")
-
 qt6_add_qml_module(content
     URI "content"
     VERSION 1.0
@@ -19,6 +16,19 @@ qt6_add_qml_module(content
     RESOURCES
         fonts/fonts.txt
         icons/settings.png
-        ${BERRY_IMAGES}
-        ${POFFIN_IMAGES}
 )
+
+if (ANDROID)
+    get_target_property(RCC_OUTPUT_BUILD_DIR PoffinMasterDSApp QT_ANDROID_PACKAGE_SOURCE_DIR)
+else()
+    set(RCC_OUTPUT_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+
+qt_add_binary_resources(berry_images images/berry_images.qrc DESTINATION ${RCC_OUTPUT_BUILD_DIR}/assets/berry_images.rcc)
+qt_add_binary_resources(poffin_images images/poffin_images.qrc DESTINATION ${RCC_OUTPUT_BUILD_DIR}/assets/poffin_images.rcc)
+
+# add the qrc files discoverable by QtCreator
+target_sources(berry_images PRIVATE images/berry_images.qrc)
+target_sources(poffin_images PRIVATE images/poffin_images.qrc)
+
+add_dependencies(content berry_images poffin_images)
